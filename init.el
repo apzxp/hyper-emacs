@@ -53,14 +53,14 @@
 ;; Set the width of the buffer to n columns
 (setq-default fill-column 90)
 
-;; Set fringe to 20px
+;; Set fringe to n px
 (fringe-mode 16)
 
 ;; Center wrapped text in window
 (setq-default visual-fill-column-center-text t)
 
 ;; Add visual-line mode to multiple hooks
-(dolist (hook '(prog-mode-hook org-mode-hook markdown-mode-hook recentf-dialog-mode-hook))
+(dolist (hook '(prog-mode-hook org-mode-hook markdown-mode-hook text-mode-hook))
   (add-hook hook #'visual-line-mode))
 
 ;;; Completion framework
@@ -76,9 +76,6 @@
 
 ;; Turn on globalized minor mode
 (global-goto-address-mode 1)
-
-;; Enable line numbering in prog-mode
-(add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
 ;; Automatically pair parentheses
 (electric-pair-mode t)
